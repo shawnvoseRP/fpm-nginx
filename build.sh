@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-repository="realpage/php-fpm"
+repository="realpage/fpm-nginx"
 fpm=( "7.0" "7" )
 tagsfpm=""
 
