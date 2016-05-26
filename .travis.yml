@@ -9,7 +9,7 @@ script:
   - docker build -t "realpage/fpm-nginx" .
   - docker images
   # build and push all variations of images
-  - if [[ $TRAVIS_BRANCH == 'master' ]]; then cd ../ && bash build.sh ; fi
+  - if [[ $TRAVIS_BRANCH == 'master' ]]; then bash build.sh ; fi
 notifications:
   slack:
     secure: ${SLACK_TOKEN}
