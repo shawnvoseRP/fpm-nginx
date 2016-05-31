@@ -1,4 +1,6 @@
-FROM php:7.0-alpine
+FROM php:7.0-fpm-alpine
+
+ENV S6_OVERLAY_VERSION=v1.17.2.0
 
 # ------------------------ add nginx ------------------------
 # Taken from official nginx container Dockerfile
@@ -113,4 +115,19 @@ RUN \
 	\
 	# forward request and error logs to docker log collector
 	&& ln -sf /dev/stdout /var/log/nginx/access.log \
-	&& ln -sf /dev/stderr /var/log/nginx/error.lo
+	&& ln -sf /dev/stderr /var/log/nginx/error.log \
+
+# ------------------------ add s6 ------------------------
+    && apk add --no-cache curl \
+    && curl -sSL https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz \
+    | tar xfz - -C / \
+    && apk del curl
+
+ADD services.d /etc/services.d
+
+# ------------------------ start fpm/nginx ------------------------
+
+EXPOSE 80 443
+
+ENTRYPOINT ["/init"]
+CMD []
