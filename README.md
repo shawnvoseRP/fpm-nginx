@@ -6,8 +6,8 @@
 Sometimes it's best to combine provide a single container for service/app distribution.  These containers include both PHP-FPM and Nginx in a single container.  Other processes can easily be added as well.
 
 ## Supported tags
-- [`7.0`, `7`,  (*Dockerfile*)](https://hub.docker.com/r/realpage/fpm-nginx/) 
-[![Image Layers](https://img.shields.io/imagelayers/layers/realpage/fpm-nginx/7.0.svg)](https://imagelayers.io/?images=realpage/fpm-nginx:7.0)
+- [`7.1`, `7`,  (*Dockerfile*)](https://hub.docker.com/r/realpage/fpm-nginx/) 
+[![Image Layers](https://img.shields.io/imagelayers/layers/realpage/fpm-nginx/7.1.svg)](https://imagelayers.io/?images=realpage/fpm-nginx:7.1)
 
 ## Adding Processes
 
