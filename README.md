@@ -5,10 +5,6 @@
 
 Sometimes it's best to combine provide a single container for service/app distribution.  These containers include both PHP-FPM and Nginx in a single container.  Other processes can easily be added as well.
 
-## Supported tags
-- [`7.1`, `7`,  (*Dockerfile*)](https://hub.docker.com/r/realpage/fpm-nginx/) 
-[![Image Layers](https://img.shields.io/imagelayers/layers/realpage/fpm-nginx/7.1.svg)](https://imagelayers.io/?images=realpage/fpm-nginx:7.1)
-
 ## Adding Processes
 
 This container uses [S6 Overlay](https://github.com/just-containers/s6-overlay) as it's process monitoring solution.  Add a new directory to `services.d` with a `run` file in it where `run` in a shell script that kicks off the process.  The rest is taken care of for you.

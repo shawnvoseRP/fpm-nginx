@@ -1,4 +1,4 @@
-FROM php:7.1-fpm-alpine
+FROM php:7.1.5-fpm-alpine
 
 ENV S6_OVERLAY_VERSION=v1.19.1.1
 
@@ -142,10 +142,11 @@ RUN GPG_KEYS=B0F4253373F8F6F510D42178520A9993A1C052F8 \
     && apk del curl
 
 ADD services.d /etc/services.d
+ADD nginx.conf /etc/nginx/nginx.conf
 
 # ------------------------ start fpm/nginx ------------------------
 
-EXPOSE 80 443
+EXPOSE 80
 
 ENTRYPOINT ["/init"]
 CMD []
