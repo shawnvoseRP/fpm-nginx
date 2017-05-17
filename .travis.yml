@@ -8,7 +8,8 @@ before_script:
  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 script:
  - docker build -t "$image" .
- - ~/official-images/test/run.sh "$image"
+# Disabling because we don't want cmd to be overwriteable
+# - ~/official-images/test/run.sh "$image"
  - docker images
 before_deploy:
  # Extract the version components out of a `v12.34.56` or `12.34.56` version string (only works if this is a semantically versioned tag)
