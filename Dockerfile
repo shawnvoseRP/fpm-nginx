@@ -159,9 +159,6 @@ RUN apk add --update --no-cache \
 
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
 
-    # Installing composer
-    && php /var/www/html/install_composer.php \
-
     # Installing common Laravel dependencies
     && docker-php-ext-install mbstring \
 
@@ -172,6 +169,9 @@ RUN apk add --update --no-cache \
 
         # needed for forking processes in laravel queues as of Laravel 5.3
         pcntl \
+
+    # Installing composer
+    && php /var/www/html/install_composer.php \
 
     # For parallel composer dependency installs
     && composer global require hirak/prestissimo \
